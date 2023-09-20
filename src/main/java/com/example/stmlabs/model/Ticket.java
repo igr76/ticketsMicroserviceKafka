@@ -18,6 +18,7 @@ public class Ticket {
   private LocalDateTime dateTime;
   private int place;
   private int cost;
+  private int userId;
 
 
 }

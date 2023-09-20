@@ -48,8 +48,8 @@ public class WebSecurityConfig {
   @Bean
   protected AuthenticationManagerBuilder authenticationManagerBuilder(
       AuthenticationManagerBuilder auth
-  ) {
-    return auth.authenticationProvider(daoAuthenticationProvider());
+  ) throws Exception {
+    return (AuthenticationManagerBuilder) auth.build();
   }
 
 
