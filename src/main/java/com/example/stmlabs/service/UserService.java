@@ -8,4 +8,6 @@ public interface UserService {
     UserDto updateUser(UserDto newUserDto, Authentication authentication);
 
     void deleteUser(String login, Authentication authentication);
+
+    UserDto greaetUser(UserDto userDto, Authentication authentication);
 }
