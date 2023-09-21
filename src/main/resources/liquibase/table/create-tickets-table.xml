@@ -5,32 +5,32 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
-    <changeSet id="create-routes-table" author="Igor Gritsuk">
+    <changeSet id="create-tickets-table" author="Igor Gritsuk">
 
         <preConditions>
             <not>
-                <tableExists tableName="routes"/>
+                <tableExists tableName="ticket"/>
             </not>
         </preConditions>
 
-        <createTable tableName="routes">
+        <createTable tableName="tickets">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="arrivalPoint" type="VARCHAR(16)">
-                <constraints unique="true" nullable="false"/>
+            <column name="route" type="INT">
+                <constraints  nullable="false"/>
             </column>
-            <column name="departurePoint" type="VARCHAR(16)">
+            <column name="dateTime" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="carrier" type="INT">
+            <column name="place" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="durationInMinutes" type="INT">
+            <column name="cost" type="INT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="routes" baseColumnNames="carrier" constraintName="routes_carrier_carrier_id" referencedTableName="routes"
+        <addForeignKeyConstraint baseTableName="tickets" baseColumnNames="route" constraintName="tickets_route_routes_id" referencedTableName="routes"
                                  referencedColumnNames="id" onUpdate="CASCADE"/>
 
     </changeSet>

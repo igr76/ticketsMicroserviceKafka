@@ -19,7 +19,7 @@ services:
     build:
       context: .
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/stm-labs
     depends_on:

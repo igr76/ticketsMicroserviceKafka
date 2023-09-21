@@ -1,4 +1,4 @@
-package com.example.stmlabs.model;
+package com.example.stmlabs.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,14 +10,15 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class UserDto {
 
-  private long id;
   private String login;
   private String passwordHash;
   private String name;
   private String surname;
   private String patronymicName;
+
+
 
 
 }

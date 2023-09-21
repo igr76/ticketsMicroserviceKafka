@@ -1,23 +1,20 @@
-package com.example.stmlabs.model;
+package com.example.stmlabs.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** Cущность пассажир  */
+/** Cущность перевозчик  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class CarrierDto {
 
   private long id;
-  private String login;
-  private String passwordHash;
   private String name;
-  private String surname;
-  private String patronymicName;
+  private String phone;
 
 
 }
