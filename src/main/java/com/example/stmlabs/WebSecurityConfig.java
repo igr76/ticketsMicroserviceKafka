@@ -45,13 +45,6 @@ public class WebSecurityConfig {
     return daoAuthenticationProvider;
   }
 
-  @Bean
-  protected AuthenticationManagerBuilder authenticationManagerBuilder(
-      AuthenticationManagerBuilder auth
-  ) throws Exception {
-    return (AuthenticationManagerBuilder) auth.build();
-  }
-
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
