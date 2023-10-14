@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,15 +21,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping("/users")
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 public class UserController {
 
 
-  private final UserService userService;
+  private UserService userService;
 
-  public UserController(UserService userService) {
-    this.userService = userService;
-  }
+ // public UserController(UserService userService) {
+//    this.userService = userService;
+//  }
 
 
   @Operation(summary = "Получить пользователя")

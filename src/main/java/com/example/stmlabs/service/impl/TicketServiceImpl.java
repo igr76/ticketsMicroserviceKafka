@@ -4,11 +4,12 @@ import com.example.stmlabs.dto.TicketDto;
 import com.example.stmlabs.model.Ticket;
 import com.example.stmlabs.service.TicketService;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
-
+@Service
 public class TicketServiceImpl implements TicketService {
 
     @Override
