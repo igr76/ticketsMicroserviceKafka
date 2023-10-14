@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,9 +23,10 @@ import java.util.Collection;
 
 @RequestMapping("/ticket")
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 public class TicketController {
-    private TicketService ticketService;
+    private  TicketService ticketService;
 
     @Operation(summary = "Создать Билет")
     @ApiResponses({

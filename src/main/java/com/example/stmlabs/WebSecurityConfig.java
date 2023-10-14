@@ -2,12 +2,13 @@ package com.example.stmlabs;
 
 import com.example.stmlabs.jwt.JwtFilter;
 import com.example.stmlabs.security.Encoder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,15 +18,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import static org.springframework.security.config.Customizer.withDefaults;
 
-
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
-  private final JwtFilter jwtFilter;
-
+  private  JwtFilter jwtFilter;
+//  private   UserDetailsService userDetailService;
+//
+//  public WebSecurityConfig(JwtFilter jwtFilter, UserDetailsService userDetailService) {
+//    this.jwtFilter = jwtFilter;
+//    this.userDetailService = userDetailService;
+//  }
 
   private static final String[] AUTH_WHITELIST = {
       "/swagger-resources/**",
@@ -35,15 +40,16 @@ public class WebSecurityConfig {
       "/login",
       "/ticket/*"
   };
-  private final UserDetailsService userDetailService;
 
-  @Bean
-  protected DaoAuthenticationProvider daoAuthenticationProvider() {
-    DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-    daoAuthenticationProvider.setPasswordEncoder(Encoder.passwordEncoderWithBCrypt());
-    daoAuthenticationProvider.setUserDetailsService(userDetailService);
-    return daoAuthenticationProvider;
-  }
+
+
+//  @Bean
+//  protected DaoAuthenticationProvider daoAuthenticationProvider() {
+//    DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+//    daoAuthenticationProvider.setPasswordEncoder(Encoder.passwordEncoderWithBCrypt());
+//    daoAuthenticationProvider.setUserDetailsService(userDetailService);
+//    return daoAuthenticationProvider;
+//  }
 
 
   @Bean

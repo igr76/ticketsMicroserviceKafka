@@ -5,10 +5,13 @@ import com.example.stmlabs.dto.UserDto;
 import com.example.stmlabs.mapper.UserMapper;
 import com.example.stmlabs.model.User;
 import com.example.stmlabs.service.UserService;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 /**
@@ -18,14 +21,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-  private final UserMapper userMapper;
+ // private final UserMapper userMapper;
 
-  @Value("${image.user.dir.path}")
-  private String userPhotoDir;
 
-  public UserServiceImpl( UserMapper userMapper) {
-    this.userMapper = userMapper;
-  }
+//  @Value("${image.user.dir.path}")
+//  private String userPhotoDir;
+
 
   /**
    * Получить данные пользователя
@@ -54,6 +55,11 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserDto greaetUser(UserDto userDto, Authentication authentication) {
+    return null;
+  }
+
+  @Override
+  public Optional<User> getByLogin(@NonNull String login) {
     return null;
   }
 
